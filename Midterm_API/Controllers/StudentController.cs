@@ -58,17 +58,8 @@ namespace Midterm_API.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var studentExist = _studentService.GetSingleStudent(id);
-            if (studentExist == null)
-            {
-                return NotFound();
-            }
-            else
-            {
-                _studentService.DeleteStudent(id);
-                return Ok();
-            }
-            
+            _studentService.DeleteStudent(id);
+            return Ok();
         }
     }
 }
