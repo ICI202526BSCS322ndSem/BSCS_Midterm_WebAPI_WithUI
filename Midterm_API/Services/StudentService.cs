@@ -6,7 +6,13 @@ namespace Midterm_API.Services
     public class StudentService
     {
         private readonly StudentRepository _repository;
-
+        private readonly List<Student>
+            _student = new List<Student>();
+        public class student
+        { 
+          
+        }
+        
         public StudentService(StudentRepository repository)
         {
             _repository = repository;
@@ -16,6 +22,14 @@ namespace Midterm_API.Services
         {
             return _repository.GetAll().OrderByDescending(p => p.Id);
         }
+
+        public IEnumerable<Student> GetStudent() => _repository.GetSingleStudent().ToString(p => p.Id);
+
+        internal object? GetSingleStudent()
+        {
+            throw new NotImplementedException();
+        }
+
 
         //Create GetSingleStudent method here
         //Accept "id" as parameter and return Student

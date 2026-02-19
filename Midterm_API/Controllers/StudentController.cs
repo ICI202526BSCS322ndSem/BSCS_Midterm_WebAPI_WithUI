@@ -16,11 +16,15 @@ namespace Midterm_API.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult Get() 
         {
             return Ok(_studentService.GetAllStudents());
         }
 
+        public IActionResult GetSingleStudent()
+        {
+            return Ok(_studentService.GetSingleStudent());
+        }
         //GET
         //Create GetSingle endpoint here with "id" as parameter
         //return OK if found, NotFound if not found
@@ -41,6 +45,6 @@ namespace Midterm_API.Controllers
         //DELETE
         //Create DeleteStudent endpoint here
         //Accept "id" as parameter
-       
+
     }
 }
