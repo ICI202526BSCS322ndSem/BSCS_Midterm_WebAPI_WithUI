@@ -54,7 +54,6 @@ namespace Midterm_API.Controllers
         public IActionResult Put(int id, Student student)
         {
 
-
             student.Id = id;
             _studentService.AddStudent(student);
             return Ok();
