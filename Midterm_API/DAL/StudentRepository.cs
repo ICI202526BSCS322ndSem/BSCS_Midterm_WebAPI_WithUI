@@ -44,5 +44,30 @@ namespace Midterm_API.DAL
             }
         }
         public void Delete(int id) => _students.RemoveAll(p => p.Id == id);
+
+        internal object GetAllStudents(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void CreateStudent(Student student)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void RemoveStudent(object id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal object? GetAllStudents()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Delete(object id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
