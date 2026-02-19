@@ -42,7 +42,13 @@ namespace Midterm_API.DAL
                 existing.Year = Student.Year;
                 existing.Section = Student.Section;
             }
+        }       
+
+        public void Delete(int id)
+        {
+            var Student = GetById(id);
+            if (Student is not null)
+                _students.Remove(Student);
         }
-        public void Delete(int id) => _students.RemoveAll(p => p.Id == id);
     }
 }

@@ -17,6 +17,11 @@ namespace Midterm_API.Services
             return _repository.GetAll().OrderByDescending(p => p.Id);
         }
 
+        internal object GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
+
         //Create GetSingleStudent method here
         //Accept "id" as parameter and return Student
 
@@ -34,5 +39,11 @@ namespace Midterm_API.Services
 
         //Create DeleteStudent method here
         //Accept "id" as parameter and return void
+        public bool Delete(int id)
+        {
+            if (_repository.GetById(id) is null) return false;
+            _repository.Delete(id);
+            return true;
+        }
     }
 }
