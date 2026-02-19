@@ -23,7 +23,7 @@ namespace Midterm_API.Controllers
         }
 
         //GET
-        //Create GetSingle endpoint here with "id" as parameter
+        //Create GetSingle endpoint here with "id" as para meter
         //return OK if found, NotFound if not found
         [HttpGet("{id}")]
         public ActionResult<Student> GetById(int id)
