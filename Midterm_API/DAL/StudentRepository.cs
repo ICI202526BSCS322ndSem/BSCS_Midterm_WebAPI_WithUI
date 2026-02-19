@@ -28,7 +28,7 @@ namespace Midterm_API.DAL
 
         public void Add(Student Student)
         {
-            Student.Id = _students.Max(p => p.Id) + 1;
+             Student.Id = _students.Max(p => p.Id) ; 
             _students.Add(Student);
         }
         public void Update(Student Student)
