@@ -21,7 +21,6 @@ namespace Midterm_API.Controllers
             return Ok(_studentService.GetAllStudents());
         }
 
-        //GET
         //Create GetSingle endpoint here with "id" as parameter
         //return OK if found, NotFound if not found
         [HttpGet("{id}")]
