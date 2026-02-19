@@ -1,4 +1,6 @@
-﻿using Midterm_API.DAL;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
+using Midterm_API.DAL;
 using Midterm_API.Entities;
 
 namespace Midterm_API.Services
@@ -19,7 +21,8 @@ namespace Midterm_API.Services
 
         //Create GetSingleStudent method here
         //Accept "id" as parameter and return Student
-
+        [HttpGet]
+        
 
 
         //Create AddStudent method here
