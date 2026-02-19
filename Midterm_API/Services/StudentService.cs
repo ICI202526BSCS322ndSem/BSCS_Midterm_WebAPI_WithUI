@@ -1,5 +1,7 @@
-﻿using Midterm_API.DAL;
+﻿using Microsoft.AspNetCore.Mvc;
+using Midterm_API.DAL;
 using Midterm_API.Entities;
+using Midterm_API.Services;
 
 namespace Midterm_API.Services
 {
@@ -17,6 +19,32 @@ namespace Midterm_API.Services
             return _repository.GetAll().OrderByDescending(p => p.Id);
         }
 
+
+        public Student GetSingleStudent(int id)
+        {
+            return _repository.GetById(id);
+        }
+
+
+
+        public void  AddStudent(Student student)
+        {
+             _repository.Add(student);
+
+        }
+
+        public void UpdateStudent(Student student)
+        {
+            _repository.Update(student);
+
+        }
+
+        public void DeleteStudent(int id)
+        {
+            _repository.Delete(id);
+        }
+
+
         //Create GetSingleStudent method here
         //Accept "id" as parameter and return Student
 
@@ -29,7 +57,6 @@ namespace Midterm_API.Services
 
         //Create UpdateStudent method here
         //Accept Student object as parameter and return void
-
 
 
         //Create DeleteStudent method here
