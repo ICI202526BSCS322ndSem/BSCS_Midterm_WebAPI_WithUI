@@ -2,6 +2,7 @@
 using Midterm_API.Entities;
 
 namespace Midterm_API.Services
+
 {
     public class StudentService
     {
@@ -12,27 +13,18 @@ namespace Midterm_API.Services
             _repository = repository;
         }
 
-        public IEnumerable<Student> GetAllStudents()
+        public IEnumerable<Student> GetStudentForDisplay()
         {
-            return _repository.GetAll().OrderByDescending(p => p.Id);
+
+            return _repository.GetAll().OrderBy(p => p.FullName);
         }
 
-        //Create GetSingleStudent method here
-        //Accept "id" as parameter and return Student
+        public Student GetSingleStudent(int id) => _repository.GetById(id);
 
+        public void CreateStudent(Student student) => _repository.Add(student);
 
+        public void UpdateStudent(Student student) => _repository.Update(student);
 
-        //Create AddStudent method here
-        //Accept Student object as parameter and return void
-
-
-
-        //Create UpdateStudent method here
-        //Accept Student object as parameter and return void
-
-
-
-        //Create DeleteStudent method here
-        //Accept "id" as parameter and return void
+        public void RemoveStudent(int id) => _repository.Delete(id);
     }
 }
