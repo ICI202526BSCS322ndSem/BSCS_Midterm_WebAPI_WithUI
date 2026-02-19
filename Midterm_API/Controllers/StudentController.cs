@@ -24,8 +24,9 @@ namespace Midterm_API.Controllers
         //GET
         //Create GetSingle endpoint here with "id" as parameter
         //return OK if found, NotFound if not found
-
-
+        [HttpGet]
+        public IActionResult Get(int id)
+        {
         //POST
         //Create AddStudent endpoint here
         //Accept Student object as parameter

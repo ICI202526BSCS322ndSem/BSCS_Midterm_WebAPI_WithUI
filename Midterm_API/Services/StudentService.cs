@@ -1,4 +1,5 @@
-﻿using Midterm_API.DAL;
+﻿using Microsoft.AspNetCore.Mvc;
+using Midterm_API.DAL;
 using Midterm_API.Entities;
 
 namespace Midterm_API.Services
@@ -19,12 +20,14 @@ namespace Midterm_API.Services
 
         //Create GetSingleStudent method here
         //Accept "id" as parameter and return Student
+        [HttpGet("{id}")]
+        public Student GetStudent(int id) {
 
 
 
-        //Create AddStudent method here
-        //Accept Student object as parameter and return void
-
+            //Create AddStudent method here
+            //Accept Student object as parameter and return void
+            [HttpAdd("{id}")]
 
 
         //Create UpdateStudent method here
@@ -34,5 +37,7 @@ namespace Midterm_API.Services
 
         //Create DeleteStudent method here
         //Accept "id" as parameter and return void
+
+
     }
 }
