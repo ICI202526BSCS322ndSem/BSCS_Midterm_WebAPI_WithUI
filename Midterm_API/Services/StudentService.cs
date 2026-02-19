@@ -1,38 +1,29 @@
-﻿using Midterm_API.DAL;
-using Midterm_API.Entities;
+﻿using API.DAL;
+using API.Entities;
 
-namespace Midterm_API.Services
+namespace API.Services
 {
-    public class StudentService
+    public class ProductService
     {
-        private readonly StudentRepository _repository;
+        private readonly ProductRepository _repository;
 
-        public StudentService(StudentRepository repository)
+        public ProductService(ProductRepository repository)
         {
             _repository = repository;
         }
 
-        public IEnumerable<Student> GetAllStudents()
+        public IEnumerable<Product> GetProductsForDisplay()
         {
-            return _repository.GetAll().OrderByDescending(p => p.Id);
+            // Logic: Perhaps sort by name before sending to UI
+            return _repository.GetAll().OrderBy(p => p.Name);
         }
 
-        //Create GetSingleStudent method here
-        //Accept "id" as parameter and return Student
+        public Product GetSingleProduct(int id) => _repository.GetById(id);
 
+        public void CreateProduct(Product product) => _repository.Add(product);
 
+        public void UpdateProduct(Product product) => _repository.Update(product);
 
-        //Create AddStudent method here
-        //Accept Student object as parameter and return void
-
-
-
-        //Create UpdateStudent method here
-        //Accept Student object as parameter and return void
-
-
-
-        //Create DeleteStudent method here
-        //Accept "id" as parameter and return void
+        public void RemoveProduct(int id) => _repository.Delete(id);
     }
 }

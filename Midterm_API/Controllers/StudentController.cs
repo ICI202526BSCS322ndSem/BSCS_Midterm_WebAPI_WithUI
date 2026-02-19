@@ -1,46 +1,53 @@
+using API.Entities;
+using API.Services;
 using Microsoft.AspNetCore.Mvc;
-using Midterm_API.Entities;
-using Midterm_API.Services;
 
-namespace Midterm_API.Controllers
+namespace API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StudentController : ControllerBase
+    public class ProductsController : ControllerBase
     {
-        private readonly StudentService _studentService;
+        private readonly ProductService _productService;
 
-        public StudentController(StudentService studentService)
+        public ProductsController(ProductService productService)
         {
-            _studentService = studentService;
+            _productService = productService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_studentService.GetAllStudents());
+            return Ok(_productService.GetProductsForDisplay());
         }
 
-        //GET
-        //Create GetSingle endpoint here with "id" as parameter
-        //return OK if found, NotFound if not found
+        [HttpGet("{id}")]
+        public IActionResult Get(int id)
+        {
+            var product = _productService.GetSingleProduct(id);
+            return product == null ? NotFound() : Ok(product);
+        }
 
+        [HttpPost]
+        public IActionResult Post([FromBody] Services product)
+        {
+            _productService.CreateProduct(product);
+            return Ok();
+        }
 
-        //POST
-        //Create AddStudent endpoint here
-        //Accept Student object as parameter
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, [FromBody] Product product)
+        {
+            product.Id = id;
+            _productService.UpdateProduct(product);
+            return Ok();
+        }
 
-
-
-        //PUT
-        //Create UpdateStudent endpoint here
-        //Accept "id" as parameter and Student object as body
-
-
-
-        //DELETE
-        //Create DeleteStudent endpoint here
-        //Accept "id" as parameter
-       
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _productService.RemoveProduct(id);
+            return Ok();
+        }
     }
 }
