@@ -44,5 +44,15 @@ namespace Midterm_API.DAL
             }
         }
         public void Delete(int id) => _students.RemoveAll(p => p.Id == id);
+
+        internal IEnumerable<Student> GetById(Student id)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal IEnumerable<Student> GetById(object id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
