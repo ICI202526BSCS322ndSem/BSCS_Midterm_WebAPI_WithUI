@@ -17,22 +17,21 @@ namespace Midterm_API.Services
             return _repository.GetAll().OrderByDescending(p => p.Id);
         }
 
-        //Create GetSingleStudent method here
-        //Accept "id" as parameter and return Student
+        //Create SingleStudent method here
+        //Accept "id" as parameter and return void
+        public Student GetSingleStudent(int Id) => _repository.GetById(Id);
 
-
-
-        //Create AddStudent method here
-        //Accept Student object as parameter and return void
-
-
+        //Create CreateStudent method here
+        //Accept "id" as parameter and return void
+        public void CreateStudent(Student student) => _repository.Add(student);
 
         //Create UpdateStudent method here
-        //Accept Student object as parameter and return void
-
+        //Accept "id" as parameter and return void
+        public void UpdateStudent(Student student) => _repository.Update(student);
 
 
         //Create DeleteStudent method here
         //Accept "id" as parameter and return void
+        public void DeleteStudent (int Id) => _repository.Delete(Id);
     }
 }
