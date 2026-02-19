@@ -1,4 +1,4 @@
-//DelaCruz, John Paul C.
+//DelaCruz, John Paul C
 using Midterm_API.DAL;
 using Midterm_API.Services;
 using System.Text.Json;
