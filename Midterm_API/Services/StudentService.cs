@@ -1,4 +1,4 @@
-﻿//Herrera Karylle Ann I. | BSCS 3-2
+﻿//Herrera Karylle Ann I. BSCS 3-2
 using Midterm_API.DAL;
 using Midterm_API.Entities;
 
